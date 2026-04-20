@@ -1,16 +1,30 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
-  "name": "stagewise Docs",
+  "theme": "mint",
+  "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#2559fe",
-    "light": "#fdfcfc",
-    "dark": "#1e1e1d"
+    "primary": "#2559FE",
+    "light": "#07C983",
+    "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "global": {
       "anchors": [
+        {
+          "anchor": "Documentation",
+          "icon": "book-open-cover",
+          "color": {
+            "light": "#2559fe",
+            "dark": "#2559fe"
+          },
+          "href": "https://docs.stagewise.io/"
+        },
+        {
+          "anchor": "Newsroom",
+          "icon": "newspaper",
+          "href": "https://stagewise.io/news"
+        },
         {
           "anchor": "GitHub",
           "icon": "github",
@@ -71,6 +85,26 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "API documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -81,21 +115,37 @@
   "navbar": {
     "links": [
       {
+        "label": "Support",
+        "href": "mailto:hi@mintlify.com"
+      },
+      {
         "label": "Website",
         "href": "https://stagewise.io"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Download",
-      "href": "https://stagewise.io"
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
     }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://stagewise.io/socials/x",
-      "github": "https://github.com/stagewise/stagewise",
-      "linkedin": "https://stagewise.io/socials/linkedin",
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify",
       "discord": "https://stagewise.io/socials/discord"
     }
   }

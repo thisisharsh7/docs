@@ -15,40 +15,32 @@ stagewise ships with a curated list of built-in models, but you can define addit
     Click **Add model** to open the model editor dialog.
   </Step>
   <Step title="Configure the model">
-    Fill in:
-    - **Model ID** — The identifier your endpoint expects (e.g. `llama-3.3-70b`)
-    - **Display name** — A friendly name shown in the model selector
-    - **Description** — Optional description of the model's strengths
-    - **Context window size** — Maximum token context (default: 128,000)
-    - **Endpoint** — Which endpoint to route this model to
-    - **Extended thinking** — Whether the model supports chain-of-thought reasoning
-    - **Capabilities** — Toggle supported input/output modalities
+    Enter all the necessary information for the model and hit **Save**.
   </Step>
 </Steps>
 
-## Capabilities
+## Model capabilities
 
-Each custom model can declare what it supports:
+Each model that get's registered must support the following set of capabilities in order to be usable within stagewise:
 
-**Input modalities:**
-- Text (always on)
-- Image
-- Video
-- Audio
-- File (PDF)
-
-**Output modalities:**
-- Text (always on)
-- Image
-- Audio
-- Video
-- File
-
-**Tool calling** — Whether the model can invoke tools. Required for file editing, workspace search, browser control, and other agent capabilities.
+- **Text** –– Standard text generation
+- **Tool Calling** –– Standardized tool generation via API
 
 <Warning>
-  If you disable tool calling, the agent cannot perform code edits or interact with the browser. It becomes a chat-only model.
+  Models that don't support the required capabilities will fail at runtime.
 </Warning>
+
+The model may optionally support the following modalities and capabilities.
+
+- **Image Vision** –– Image type inputs
+- **Video Vision** –– Video type inputs
+- **Audio** –– Audio type inputs for hearing capabilities
+
+<Check>
+  The stagewise agent does **NOT** need any of these model/API capabilities to fully operate:
+
+  - **File Inputs** –– stagewise reads files with a custom pipeline that's independent of native API capabilities
+</Check>
 
 ## Custom model with a custom endpoint
 

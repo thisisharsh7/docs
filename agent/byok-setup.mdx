@@ -12,25 +12,27 @@ BYOK (Bring Your Own Key) lets you connect directly to LLM provider APIs using y
     Navigate to **Settings → Agent → Models & Providers**.
   </Step>
   <Step title="Select a provider">
-    Click on the provider you want to configure (e.g. Anthropic, OpenAI, Google).
+    Scroll to the provider you want to configure (e.g. Anthropic, OpenAI, Google).
   </Step>
-  <Step title="Switch to Official API mode">
-    Select the **Official API** endpoint mode. This routes requests directly to the provider's API.
+  <Step title='Switch to "Use own API key with official API" mode'>
+    Select the **Use own API key with official API **endpoint mode. This routes requests directly to the provider's API.
   </Step>
   <Step title="Enter your API key">
     Paste your API key into the input field and click **Save**.
 
-    <Tip>Your API key is encrypted before being stored. It never leaves your machine unencrypted.</Tip>
+    <Tip>
+      Your API key is encrypted before being stored and not synchronized with your stagewise account. It never leaves your machine unencrypted.
+    </Tip>
   </Step>
-  <Step title="Validate the key">
-    Click **Validate** to verify the key works. stagewise sends a lightweight test request to confirm connectivity.
+  <Step title="Save and Validate the key">
+    Click **Save** to verify the key works. stagewise sends a lightweight test request to confirm connectivity.
   </Step>
 </Steps>
 
 ## Where to get API keys
 
 | Provider | Key source |
-|----------|------------|
+| --- | --- |
 | Anthropic | [console.anthropic.com](https://console.anthropic.com) → API Keys |
 | OpenAI | [platform.openai.com](https://platform.openai.com) → API Keys |
 | Google | [aistudio.google.com](https://aistudio.google.com) → Get API Key |
@@ -39,14 +41,24 @@ BYOK (Bring Your Own Key) lets you connect directly to LLM provider APIs using y
 
 ## Removing a key
 
-To remove a saved API key, open the provider's configuration and click **Clear key**. This deletes the encrypted key from local storage and reverts the provider to stagewise proxy mode.
-
+<Step title="Open provider settings">
+  Navigate to **Settings → Agent → Models & Providers**.
+</Step>
+<Step title="Select a provider">
+  Scroll to the  provider you want to configure (e.g. Anthropic, OpenAI, Google).
+</Step>
+<Step title='Click on "Clear"'>
+  This will permanently clear the key from your machine. 
+</Step>
+<Step title='Switch to "stagewise account" mode or re-configure BYOK'>
+  To continue using the models of the given provider, either switch back to **Use my stagewise account** mode, or re-configure BYOK. Otherwise, model calls will fail.
+</Step>
 ## Mixing modes
 
 Each provider is configured independently. You can use BYOK for one provider and the stagewise proxy for another. For example:
 
 - **Anthropic** → Official API (your key)
-- **OpenAI** → stagewise proxy
-- **Google** → Custom endpoint (self-hosted)
+- **OpenAI** → stagewise Account
+- **Google** → Custom endpoint (i.e. Vertex AI setup)
 
 The agent uses whichever mode is configured for the provider of the currently selected model.

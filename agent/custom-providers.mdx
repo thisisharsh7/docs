@@ -9,43 +9,57 @@ Custom endpoints let you route inference requests to any service that implements
 
 <Steps>
   <Step title="Open Models & Providers">
-    Navigate to **Settings → Agent → Models & Providers** and scroll to the **Custom Endpoints** section.
+    Navigate to **Settings → Agent → Models & Providers** and scroll to the **Models** section.
   </Step>
-  <Step title="Add a new endpoint">
-    Click **Add endpoint** and fill in the required fields.
+  <Step title="Open Custom Providers Settings">
+    Click **Custom Providers** in the top-right corner of the **Models** section.
   </Step>
-  <Step title="Configure the endpoint">
-    Provide:
-    - **Name** — A display name for this endpoint
-    - **API spec** — Which API protocol the endpoint implements
-    - **Base URL** — The full base URL of the endpoint
-    - **API key** (optional) — Authentication key for the endpoint
+  <Step title="Add Provider" stepNumber={3}>
+    Click **Add Provider** in the bottom right corner of the list.
+  </Step>
+  <Step title="Set name" stepNumber={4}>
+    Under** Name**, enter the displayed name of the provider.
+  </Step>
+  <Step title="Set provider type" stepNumber={5}>
+    Under **Provider Type**, select the API spec that your provider uses.
+
+    <Info>
+      Unless the Provider specifically mentioned a certain API spec, you most likely want to use **OpenAI (Chat Completions)** as it's the de facto standard for now.
+    </Info>
+  </Step>
+  <Step title="Set Base URL" stepNumber={6}>
+    Under** Base URL**, set the URL of the provider endpoint.
+  </Step>
+  <Step title="Set custom model mapping">
+    This may be required for some providers. See [Model ID Mapping](#model-id-mapping).
   </Step>
 </Steps>
 
 ## Supported API specifications
 
 | Spec | Description | Example services |
-|------|-------------|-----------------|
+| --- | --- | --- |
 | `anthropic` | Anthropic Messages API | Self-hosted Claude, any Anthropic-compatible proxy |
 | `openai-chat-completions` | OpenAI Chat Completions | vLLM, Ollama, LiteLLM, Together AI |
 | `openai-responses` | OpenAI Responses API | Direct OpenAI-compatible responses endpoints |
 | `google` | Google Generative AI | Self-hosted Gemini-compatible services |
 | `azure` | Azure OpenAI | Azure OpenAI Service |
-| `amazon-bedrock` | AWS Bedrock | Amazon Bedrock (requires region + secret key) |
-| `google-vertex` | Google Vertex AI | Vertex AI (requires project ID + location + credentials) |
+| `amazon-bedrock` | AWS Bedrock | Amazon Bedrock (requires region \+ secret key) |
+| `google-vertex` | Google Vertex AI | Vertex AI (requires project ID \+ location \+ credentials) |
 
 ## Cloud provider configuration
 
 ### Azure OpenAI
 
 Azure endpoints require additional fields:
+
 - **Resource name** — Your Azure OpenAI resource name
 - **API version** — The API version string (e.g. `2024-02-01`)
 
 ### Amazon Bedrock
 
 Bedrock endpoints require:
+
 - **Region** — AWS region (e.g. `us-east-1`)
 - **API key** — AWS Access Key ID
 - **Secret key** — AWS Secret Access Key
@@ -53,6 +67,7 @@ Bedrock endpoints require:
 ### Google Vertex AI
 
 Vertex endpoints require:
+
 - **Project ID** — Your GCP project ID
 - **Location** — GCP region (e.g. `us-central1`)
 - **Google credentials** — Service account JSON credentials

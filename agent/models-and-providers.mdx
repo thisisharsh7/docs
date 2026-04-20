@@ -7,23 +7,23 @@ stagewise supports multiple LLM providers out of the box. You can route requests
 
 Open the configuration page at **Settings → Agent → Models & Providers**.
 
-## Supported providers
+## Built-in model providers and models
 
-| Provider | Models | Description |
-|----------|--------|-------------|
-| Anthropic | Claude Opus 4.6, Sonnet 4.6, Haiku 4.5 | Claude models with extended thinking support |
-| OpenAI | GPT-5.4, GPT-5.3 Codex, GPT-5.3 Instant | GPT and Codex models |
-| Google | Gemini 3.1 Pro, Gemini 3 Flash, Gemini 3.1 Flash Lite | Gemini models with large context windows |
-| Moonshot AI | Kimi K2.5 | Multimodal dialogue and agent tasks |
-| Alibaba | Qwen 3-32B, Qwen 3-Coder 30B-A3B | Cost-effective coding models |
+| Provider | Models |
+| --- | --- |
+| Anthropic | Claude Opus 4.7, Opus 4.6, Sonnet 4.6, Haiku 4.5 |
+| OpenAI | GPT-5.4, GPT-5.3 Codex, GPT-5.3 Instant |
+| Google | Gemini 3.1 Pro, Gemini 3 Flash, Gemini 3.1 Flash Lite |
+| Moonshot AI | Kimi K2.5 |
+| Alibaba | Qwen 3-32B, Qwen 3-Coder 30B-A3B |
 
 ## Endpoint modes
 
-Each provider can be configured with one of three endpoint modes:
+Each of the built-in provider can be configured with one of three endpoint modes:
 
 ### stagewise (default)
 
-Requests are routed through the stagewise proxy. This is the simplest setup — no API key required. Usage is billed through your stagewise account.
+Requests are routed through the stagewise API. This is the simplest setup — no API key required. Usage is billed through your stagewise account.
 
 ### Official API
 
@@ -33,27 +33,10 @@ See the [BYOK setup guide](/agent/byok-setup) for step-by-step instructions.
 
 ### Custom endpoint
 
-Route requests to a custom endpoint that implements one of the supported API specifications. Useful for:
-- Self-hosted models (e.g. vLLM, Ollama)
-- Enterprise proxy servers
-- Alternative API providers (Azure, AWS Bedrock, Google Vertex)
+Route requests to a custom endpoint that implements one of the supported API specifications. This cannot only be used to register a custom endpoint for a known model (i.e. Azure, AWS Bedrock or Google Vertex), but also to use self-hosted models via Ollama or LM Studio.
 
 See the [Custom providers guide](/agent/custom-providers) for details.
 
-## Model capabilities
-
-Each model declares its supported input and output modalities:
-
-- **Text** — All models support text input and output
-- **Image** — Most models accept image attachments (JPEG, PNG, GIF, WebP)
-- **File** — PDF file uploads (supported by most models)
-- **Video** — Video input (Google and Moonshot models only)
-- **Tool calling** — All built-in models support function/tool calling
-
-<Note>
-  Input size limits vary by provider. For example, Anthropic limits images to 5 MB while Google allows up to 100 MB.
-</Note>
-
 ## Switching models
 
-You can switch the active model at any time from the model selector in the chat sidebar. The model choice applies per chat — each conversation can use a different model.
+You can switch the active model at any time from the model selector in the chat sidebar. The model choice applies per agent — each agent instance can use a different model.
