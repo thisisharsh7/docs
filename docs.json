@@ -116,7 +116,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:sales@stagewise.io"
       },
       {
         "label": "Website",
@@ -126,7 +126,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://console.stagewise.io"
     }
   },
   "contextual": {
@@ -143,9 +143,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify",
+      "x": "https://x.com/stagewise_io",
+      "github": "https://github.com/stagewise-io/stagewise",
+      "linkedin": "https://linkedin.com/company/stagewise-io",
       "discord": "https://stagewise.io/socials/discord"
     }
   }
